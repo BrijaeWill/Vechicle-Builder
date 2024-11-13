@@ -181,8 +181,8 @@ class Cli {
           parseInt(answers.year), 
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          parseInt(answers.towingCapacity), 
-          [] // Pass the wheels array
+          [],
+          parseInt(answers.towingCapacity)
       );
       // TODO: push the truck to the vehicles array
       this.vehicles.push(truck);
@@ -319,8 +319,8 @@ class Cli {
             'Turn right',
             'Turn left',
             'Reverse',
-            'wheelie',
-            'tow',
+            'Wheelie',
+            'Tow',
             'Select or create another vehicle',
             'Exit',
 
@@ -404,6 +404,13 @@ class Cli {
                 console.log('Selected vehicle is not a motorbike. Please select a motorbike to perform a wheelie.');
                 return;
               }
+            }
+          }
+        } else if (answers.action === 'Reverse') {
+          // find the selected vehicle and reverse it
+          for (let i = 0; i < this.vehicles.length; i++) {
+            if (this.vehicles[i].vin === this.selectedVehicleVin) {
+              this.vehicles[i].reverse();
             }
           }
         }else if (answers.action === 'Select or create another vehicle') {

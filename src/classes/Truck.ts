@@ -30,8 +30,9 @@ class Truck extends Vehicle implements AbleToTow {
     year: number,
     weight: number,
     topSpeed: number,
+    wheels: Wheel[],
     towingCapacity: number,
-    wheels: Wheel[]
+
    ){
     super();
 
@@ -44,6 +45,7 @@ class Truck extends Vehicle implements AbleToTow {
     this.weight = weight;
     this.topSpeed = topSpeed;
     this.towingCapacity = towingCapacity;
+    
     if(wheels.length !== 4){
       this.wheels = [new Wheel(), new Wheel(),new Wheel(),new Wheel()];
     }else{
